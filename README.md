@@ -86,10 +86,7 @@ _Email: watkins92@gmail.com_
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-
-## <a href="https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29">C#</a>
-## <a href="https://en.wikipedia.org/wiki/.NET_Core">.NET Core</a>
-## <a href="https://en.wikipedia.org/wiki/Visual_Studio_Unit_Testing_Framework">MSTest</a>
+- [MSTest](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest)
 
 ## Useful tools
 
