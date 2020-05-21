@@ -21,7 +21,7 @@ namespace ToDoList.Controllers
     
     }
 
-    [HttpPost("/categories")]
+    [HttpPost("/categories")] // Creates categories
     public ActionResult Create(string categoryName)
     {
       Category newCategory = new Category(categoryName);
@@ -31,7 +31,7 @@ namespace ToDoList.Controllers
     [HttpGet("/categories/{id}")]
     public ActionResult Show (int id)
     {
-       Dictionary<string, object> model = new Dictionary<string, object>(); // Create a new Dictionary called model because a Dictionary can hold multiple key-value pairs.
+      Dictionary<string, object> model = new Dictionary<string, object>(); // Create a new Dictionary called model because a Dictionary can hold multiple key-value pairs.
       Category selectedCategory = Category.Find(id);
       List<Item> categoryItems = selectedCategory.Items; // Add both the Category and its associated Items to this Dictionary.
       model.Add("category", selectedCategory); // These will be stored with the keys "category" and "items".
