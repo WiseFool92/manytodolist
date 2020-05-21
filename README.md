@@ -62,7 +62,7 @@ dotnet test
 #### To Do List
 |                          Behavior                          | Input  | Output  |
 | :--------------------------------------------------------: | :----: | :-----: |
-| The program | '' | ''  |
+| The program | '' | '' |
 | The program | '' | '' |
 | The program | '' | '' |
 | The program | '' | '' |
