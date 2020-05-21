@@ -34,13 +34,27 @@ git clone {link to repository}
 ```
 4. If you downloaded the zip then extract all onto your desktop
 5. Open the folder with VSC or an equivalent
-6. Download .NET Core Sdk 2.2 & Run _dotnet -- version_ in the terminal to confirm installation
-7. In the terminal Run _dotnet tool install -g dotnet-script_
-8. Download _[ASP.NET Core](https://dotnet.microsoft.com/download)_ To enable live viewing on a local server
-9. Open project, navigate to the containing folder of the project & Run _dotnet run build_ To confirm build stability
-10. Within that same containing folder Run _dotnet watch run_ To open a live server w/auto updated viewing
-11. If you want to run tests navigate to the .tests containing folder and run _dotnet test_
-12. Enjoy
+6. Install .NET Core using <a href="https://docs.microsoft.com/en-us/dotnet/core/install/runtime?pivots=os-windows">this</a> link
+7. Then Run the code below in the terminal to confirm installation
+```sh
+dotnet -- version
+```  
+8. In the terminal enter to confirm the proper version installed 
+```sh
+dotnet tool install -g 
+dotnet-script
+```
+9. Download _[ASP.NET Core](https://dotnet.microsoft.com/download)_ To enable live viewing on a local server
+10. Open project, navigate to the containing folder of the project & Run the code below to confirm build stability
+```sh
+dotnet run build 
+```
+11. Within that same containing folder Run _dotnet watch run_ To open a live server w/auto updated viewing
+12. If you want to run tests navigate to the .tests containing folder and enter
+```sh
+dotnet test
+```
+13. Enjoy
 
 ## Specs
 
@@ -72,6 +86,10 @@ _Email: watkins92@gmail.com_
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+
+## <a href="https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29">C#</a>
+## <a href="https://en.wikipedia.org/wiki/.NET_Core">.NET Core</a>
+## <a href="https://en.wikipedia.org/wiki/Visual_Studio_Unit_Testing_Framework">MSTest</a>
 
 ## Useful tools
 
