@@ -4,9 +4,9 @@
 
 ## Description
 
-_This console application will allow the user to buy items from a bakery that has special deals_
+_This application will allow the user to create a to do list_
 
-_This application is already linked to a Program.cs, .csproj, & .gitignore, but will need a .NET 3.1 or 2.2 download_
+_This application is meant to be viewed in the browser & will need a .NET Core Sdk 3.1 or 2.2 & ASP.Net 3.1 or 2.2 download_
 
 ## Setup/Installation Requirements
 
