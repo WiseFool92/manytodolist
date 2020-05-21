@@ -36,8 +36,11 @@ git clone {link to repository}
 5. Open the folder with VSC or an equivalent
 6. Download .NET Core Sdk 2.2 & Run _dotnet -- version_ in the terminal to confirm installation
 7. In the terminal Run _dotnet tool install -g dotnet-script_
-8. Open project & Run _dotnet run_
-9. Enjoy
+8. Download _[ASP.NET Core](https://dotnet.microsoft.com/download)_ To enable live viewing on a local server
+9. Open project, navigate to the containing folder of the project & Run _dotnet run build_ To confirm build stability
+10. Within that same containing folder Run _dotnet watch run_ To open a live server w/auto updated viewing
+11. If you want to run tests navigate to the .tests containing folder and run _dotnet test_
+12. Enjoy
 
 ## Specs
 
