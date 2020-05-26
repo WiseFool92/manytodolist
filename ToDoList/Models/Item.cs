@@ -7,7 +7,7 @@ namespace ToDoList.Models
   {
     public string Description { get; set; }
     public int Id { get; set; }
-    
+
     public Item(string description)
     {
       Description = description;
@@ -27,7 +27,7 @@ namespace ToDoList.Models
       }
       else
       {
-        Item newItem = (Item) otherItem;
+        Item newItem = (Item)otherItem;
         bool idEquality = (this.Id == newItem.Id);
         bool descriptionEquality = (this.Description == newItem.Description);
         return (idEquality && descriptionEquality);
@@ -52,7 +52,7 @@ namespace ToDoList.Models
       conn.Close();
       if (conn != null)
       {
-          conn.Dispose();
+        conn.Dispose();
       }
       return allItems;
     }
@@ -96,7 +96,7 @@ namespace ToDoList.Models
         itemId = rdr.GetInt32(0);
         itemDescription = rdr.GetString(1);
       }
-      Item foundItem= new Item(itemDescription, itemId);
+      Item foundItem = new Item(itemDescription, itemId);
 
       // We close the connection.
       conn.Close();
@@ -119,9 +119,9 @@ namespace ToDoList.Models
       MySqlParameter description = new MySqlParameter();
       description.ParameterName = "@ItemDescription";
       description.Value = this.Description;
-      cmd.Parameters.Add(description);    
+      cmd.Parameters.Add(description);
       cmd.ExecuteNonQuery();
-      Id = (int) cmd.LastInsertedId;
+      Id = (int)cmd.LastInsertedId;
 
       // End new code
 

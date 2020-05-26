@@ -1,13 +1,13 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 using ToDoList.Models;
+using System;
+using MySql.Data.MySqlClient;
 
 namespace ToDoList.Tests
 {
   [TestClass]
-  public class ItemTests : IDisposable
+  public class ItemTest : IDisposable
   {
     public void Dispose()
     {
@@ -19,6 +19,43 @@ namespace ToDoList.Tests
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=Highcastledoge92;port=3306;database=to_do_list_test;";
     }
 
+    // [TestMethod]
+    // public void ItemConstructor_CreatesInstanceOfItem_Item()
+    // {
+    //   Item newItem = new Item("test");
+    //   Assert.AreEqual(typeof(Item), newItem.GetType());
+    // }
+
+    // [TestMethod]
+    // public void GetDescription_ReturnsDescription_String()
+    // {
+    //   //Arrange
+    //   string description = "Walk the dog.";
+
+    //   //Act
+    //   Item newItem = new Item(description);
+    //   string result = newItem.Description;
+
+    //   //Assert
+    //   Assert.AreEqual(description, result);
+    // }
+
+    // [TestMethod]
+    // public void SetDescription_SetDescription_String()
+    // {
+    //   //Arrange
+    //   string description = "Walk the dog.";
+    //   Item newItem = new Item(description);
+
+    //   //Act
+    //   string updatedDescription = "Do the dishes";
+    //   newItem.Description = updatedDescription;
+    //   string result = newItem.Description;
+
+    //   //Assert
+    //   Assert.AreEqual(updatedDescription, result);
+    // }
+
     [TestMethod]
     public void GetAll_ReturnsEmptyListFromDatabase_ItemList()
     {
@@ -27,37 +64,9 @@ namespace ToDoList.Tests
 
       // Act
       List<Item> result = Item.GetAll();
-      foreach (Item thisItem in result)
-      {
-        Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
-      }
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
-    }
-
-    [TestMethod]
-    public void Equals_ReturnsTrueIfDescriptionsAreTheSame_Item()
-    {
-      // Arrange, Act
-      Item firstItem = new Item("Mow the lawn");
-      Item secondItem = new Item("Mow the lawn");
-
-      // Assert
-      Assert.AreEqual(firstItem, secondItem);
-    }
-
-    [TestMethod]
-    public void Save_SavesToDatabase_ItemList()
-    {
-      // Arrange
-      Item testItem = new Item ("Mow the lawn");
-      // Act
-      testItem.Save();
-      List<Item> result = Item.GetAll();
-      List<Item> testList = new List<Item> { testItem };
-      // Assert
-      CollectionAssert.AreEqual(testList, result);
     }
 
     [TestMethod]
@@ -74,14 +83,24 @@ namespace ToDoList.Tests
 
       //Act
       List<Item> result = Item.GetAll();
-      foreach (Item thisItem in result)
-      {
-        Console.WriteLine("Output from second GetAll test: " + thisItem.Description);
-      }
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+
+    // [TestMethod]
+    // public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+    // {
+    //   //Arrange
+    //   string description = "Walk the dog.";
+    //   Item newItem = new Item(description);
+
+    //   //Act
+    //   int result = newItem.Id;
+
+    //   //Assert
+    //   Assert.AreEqual(1, result);
+    // }
 
     [TestMethod]
     public void Find_ReturnsCorrectItemFromDatabase_Item()
@@ -89,76 +108,39 @@ namespace ToDoList.Tests
       //Arrange
       Item newItem = new Item("Mow the lawn");
       newItem.Save();
-      Item newItem2 = new Item("Wash the dishes");
+      Item newItem2 = new Item("Wash dishes");
       newItem2.Save();
+
       //Act
       Item foundItem = Item.Find(newItem.Id);
       //Assert
       Assert.AreEqual(newItem, foundItem);
     }
 
-
-
-
-
-
-
-
-
-    // TESTS FROM BEFORE MYSQL REFACTOR
-    /*
     [TestMethod]
-    public void ItemConstructor_CreatesInstanceOfItem_Item()
+    public void Equals_ReturnsTrueIfDescriptionsAreTheSame_Item()
     {
-      Item newItem = new Item("test");
-      Assert.AreEqual(typeof(Item), newItem.GetType());
+      // Arrange, Act
+      Item firstItem = new Item("Mow the lawn");
+      Item secondItem = new Item("Mow the lawn");
+
+      // Assert
+      Assert.AreEqual(firstItem, secondItem);
     }
 
     [TestMethod]
-    public void GetDescription_ReturnsDescription_String()
+    public void Save_SavesToDatabase_ItemList()
     {
       //Arrange
-      string description = "take out the trash";
-      Item newItem = new Item(description);
-      //Act
-      string result = newItem.Description;
-      //Assert
-      Assert.AreEqual(description, result);
-    }
-
-    [TestMethod]
-    public void SetDecription_SetDescription_string()
-    {
-      //Arrange
-      string description = "Walk the dog.";
-      Item newItem = new Item(description);
+      Item testItem = new Item("Mow the lawn");
 
       //Act
-      string updatedDescription = "Do the dishes";
-      newItem.Description = updatedDescription;
-      string result = newItem.Description;
+      testItem.Save();
+      List<Item> result = Item.GetAll();
+      List<Item> testList = new List<Item> { testItem };
 
       //Assert
-      Assert.AreEqual(updatedDescription, result);
+      CollectionAssert.AreEqual(testList, result);
     }
-
-
-
-    [TestMethod]
-    public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
-    {
-      //Arrange
-      string description = "Walk the dog.";
-      Item newItem = new Item(description);
-
-      //Act
-      int result = newItem.Id;
-
-      //Assert
-      Assert.AreEqual(1, result);
-    }
-
-
-    */
   }
 }
