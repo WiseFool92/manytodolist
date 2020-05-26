@@ -20,6 +20,49 @@ namespace ToDoList.Tests
     }
 
     [TestMethod]
+    public void GetAll_ReturnsEmptyListFromDatabase_ItemList()
+    {
+      // Arrange
+      List<Item> newList = new List<Item> { };
+
+      // Act
+      List<Item> result = Item.GetAll();
+      // foreach (Item thisItem in result)
+      // {
+      //   Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
+      // }
+
+      // Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void Equals_ReturnsTrueIfDescriptionsAreTheSame_Item()
+    {
+      // Arrange, Act
+      Item firstItem = new Item("Mow the lawn");
+      Item secondItem = new Item("Mow the lawn");
+
+      // Assert
+      Assert.AreEqual(firstItem, secondItem);
+    }
+
+    [TestMethod]
+    public void Save_SavesToDatabase_ItemList()
+    {
+      // Arrange
+      Item testItem = new Item ("Mow the lawn");
+      // Act
+      testItem.Save();
+      List<Item> result = Item.GetAll();
+      List<Item> testList = new List<Item>{testItem};
+      // Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    // TESTS FROM BEFORE MYSQL REFACTOR
+    /*
+    [TestMethod]
     public void ItemConstructor_CreatesInstanceOfItem_Item()
     {
       Item newItem = new Item("test");
@@ -54,22 +97,6 @@ namespace ToDoList.Tests
       Assert.AreEqual(updatedDescription, result);
     }
 
-    [TestMethod]
-    public void GetAll_ReturnsEmptyList_ItemList()
-    {
-      // Arrange
-      List<Item> newList = new List<Item> { };
-
-      // Act
-      List<Item> result = Item.GetAll();
-      foreach (Item thisItem in result)
-      {
-        Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
-      }
-
-      // Assert
-      CollectionAssert.AreEqual(newList, result);
-    }
 
     [TestMethod]
     public void GetAll_ReturnsItems_ItemList()
@@ -122,6 +149,6 @@ namespace ToDoList.Tests
       Assert.AreEqual(newItem2, result);
     }
 
-
+    */
   }
 }
