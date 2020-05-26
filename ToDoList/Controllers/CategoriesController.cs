@@ -46,6 +46,7 @@ namespace ToDoList.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Category foundCategory = Category.Find(categoryId); // Using the categoryId provided as an argument, we locate the Category object our new Item should belong to and call it foundCategory.
       Item newItem = new Item(itemDescription); // We then create a new Item object with the user's form input.
+      newItem.Save();
       foundCategory.AddItem(newItem); // We add the newItem to the foundCategory with our existing AddItem() method.
       List<Item> categoryItems = foundCategory.Items; // We retrieve all other Items that correspond to this category and add it to our model. We do this because the view we'll render at the end of this route requires this information.
       model.Add("items", categoryItems);
