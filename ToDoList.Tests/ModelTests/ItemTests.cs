@@ -27,10 +27,10 @@ namespace ToDoList.Tests
 
       // Act
       List<Item> result = Item.GetAll();
-      // foreach (Item thisItem in result)
-      // {
-      //   Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
-      // }
+      foreach (Item thisItem in result)
+      {
+        Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
+      }
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
@@ -58,6 +58,29 @@ namespace ToDoList.Tests
       List<Item> testList = new List<Item>{testItem};
       // Assert
       CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsItems_ItemList()
+    {
+      //Arrange
+      string description01 = "Walk the dog";
+      string description02 = "Wash the dishes";
+      Item newItem1 = new Item(description01);
+      newItem1.Save();
+      Item newItem2 = new Item(description02);
+      newItem2.Save();
+      List<Item> newList = new List<Item> {newItem1, newItem2};
+
+      //Act
+      List<Item> result = Item.GetAll();
+      foreach (Item thisItem in result)
+      {
+        Console.WriteLine("Output from second GetAll test: " + thisItem.Description);
+      }
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
 
     // TESTS FROM BEFORE MYSQL REFACTOR
@@ -98,26 +121,6 @@ namespace ToDoList.Tests
     }
 
 
-    [TestMethod]
-    public void GetAll_ReturnsItems_ItemList()
-    {
-      //Arrange
-      string description01 = "Mow the lawn.";
-      string description02 = "Sweep the porch.";
-      Item newItem1 = new Item(description01);
-      Item newItem2 = new Item(description02);
-      List<Item> newList = new List<Item> {newItem1, newItem2};
-
-      //Act
-      List<Item> result = Item.GetAll();
-      foreach (Item thisItem in result)
-      {
-        Console.WriteLine("Output from second GetAll test: " + thisItem.Description);
-      }
-
-      //Assert
-      CollectionAssert.AreEqual(newList, result);
-    }
 
     [TestMethod]
     public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
